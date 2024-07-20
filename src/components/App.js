@@ -222,54 +222,62 @@ const states = [
 
 function App() {
   // Do not alter/remove main div
-  
-   const [stateIndex,setStateIndex]=useState(0);
-   const [cityIndex,setCityIndex]=useState(0);
 
+  const [stateIndex, setStateIndex] = useState(0);
+  const [cityIndex, setCityIndex] = useState(0);
+  const [landmarkIndex,setLandmarkIndex]=useState(0);
   return (
     <div id="main">
       <div className="state">
         <label htmlFor="state">State</label>
-        <select 
-         value={stateIndex}
+        <select
+          value={stateIndex}
           onChange={(e) => {
             setStateIndex(e.target.value);
           }}
           id="state"
         >
-          
-           { states.map((state,index)=>
-            ( <option value={index} key={index}>{state.name}</option>)
-
-            )
-          }
-
+          {states.map((state, index) => (
+            <option value={index} key={index}>
+              {state.name}
+            </option>
+          ))}
         </select>
+        <div id="state-name">{states[stateIndex].name}</div>
+          <div id="state-description">{states[stateIndex].description}</div>
       </div>
       <div className="city">
         <label htmlFor="city">City</label>
-        <select name="" id="city" value={cityIndex} onChange={(e)=>{setCityIndex(e.target.value)}}>
-          {
-            states[stateIndex].city.map((city,index)=>(
-              <option value={index} key={index}>{city.name}</option>
+        <select
+          name=""
+          id="city"
+          value={cityIndex}
+          onChange={(e) => {
+            setCityIndex(e.target.value);
+          }}
+        >
+          {states[stateIndex].city.map((city, index) => (
+            <option value={index} key={index}>
+              {city.name}
+            </option>
+          ))}
 
-            ))
-          }
         </select>
-
+        <div id="city-name">{states[stateIndex].city[cityIndex].name}</div>
+          <div id="city-description">{states[stateIndex].city[cityIndex].description}</div>
       </div>
       <div className="landmark">
         <label htmlFor="landmark">Landmark</label>
-        <select name="" id="landmark" >
-          {
-            states[stateIndex].city[cityIndex].landmarks.map((landmark,i)=>(
-              <option value={i} key={i}>{landmark.name}</option>
-            ))
-          }
-
+        <select name="" id="landmark" value={landmarkIndex} onChange={(e)=>{setLandmarkIndex(e.target.value)}}>
+          {states[stateIndex].city[cityIndex].landmarks.map((landmark, i) => (
+            <option value={i} key={i}>
+              {landmark.name}
+            </option>
+          ))}
         </select>
+        <div id="landmark-name">{states[stateIndex].city[cityIndex].landmarks[landmarkIndex].name}</div>
+        <div id="landmark-description">{states[stateIndex].city[cityIndex].landmarks[landmarkIndex].description}</div>
       </div>
-      
     </div>
   );
 }
