@@ -243,7 +243,7 @@ function App() {
             </option>
           ))}
         </select>
-        <div id="state-name">{states[stateIndex].name}</div>
+        <div id="state-title">{states[stateIndex].name}</div>
           <div id="state-description">{states[stateIndex].description}</div>
       </div>
       <div className="city">
@@ -263,7 +263,7 @@ function App() {
           ))}
 
         </select>
-        <div id="city-name">{states[stateIndex].city[cityIndex].name}</div>
+        <div id="city-title">{states[stateIndex].city[cityIndex].name}</div>
           <div id="city-description">{states[stateIndex].city[cityIndex].description}</div>
       </div>
       <div className="landmark">
@@ -275,7 +275,7 @@ function App() {
             </option>
           ))}
         </select>
-        <div id="landmark-name">{states[stateIndex].city[cityIndex].landmarks[landmarkIndex].name}</div>
+        <div id="landmark-title">{states[stateIndex].city[cityIndex].landmarks[landmarkIndex].name}</div>
         <div id="landmark-description">{states[stateIndex].city[cityIndex].landmarks[landmarkIndex].description}</div>
       </div>
     </div>
